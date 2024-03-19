@@ -1,0 +1,14 @@
+.fa-trash{
+  color: white;
+  background: red;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.fa-pen-to-square{
+  color: white;
+  background: rgb(68, 0, 255);
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
