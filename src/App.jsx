@@ -44,6 +44,7 @@ function App() {
       setEmail("");
       setPass("");
     }
+
   }
   function handleUpdate(e) {
     e.preventDefault()
@@ -66,6 +67,7 @@ function App() {
      })
       setUsers(copied);
       localStorage.setItem('users', JSON.stringify(copied))
+      setIsUpdate(false)
       setName("");
       setAge(0);
       setEmail("");
@@ -80,6 +82,18 @@ function App() {
     setNation(user.nat)
   setIsUpdate(true)
   setUpdateId(user.id)
+}
+function handleDelete(user) {
+let  isDelete = confirm("Rostdan ham ushbu userni o'chirmoqchimisiz?");
+if (isDelete) {
+  let copied = JSON.parse(JSON.stringify(users));
+  copied = copied.filter(el => {
+    return el.id != user.id
+  })
+  localStorage.setItem('users', JSON.stringify(copied))
+  setUsers(copied)
+}
+  console.log(user);
 }
   return (
     <>
@@ -251,7 +265,7 @@ function App() {
                       <td>{user.pass}</td>
                       <td>{user.nat}</td>
                       <td>
-                        <i className="fa-solid fa-trash "></i>{" "}
+                        <i  onClick={() => {handleDelete(user)}} className="fa-solid fa-trash "></i>{" "}
                         <i onClick={() => {handleUpdateItem(user)}} className="fa-solid fa-pen-to-square"></i>
                       </td>
                     </tr>
