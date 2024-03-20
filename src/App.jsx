@@ -39,6 +39,7 @@ function App() {
       let copied = JSON.parse(JSON.stringify(users));
       copied.push(user);
       localStorage.setItem("users", JSON.stringify(copied));
+      setUsers(copied);
       setName("");
       setAge(0);
       setEmail("");
